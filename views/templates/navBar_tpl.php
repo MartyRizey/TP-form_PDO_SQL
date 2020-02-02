@@ -1,7 +1,8 @@
 
 <?php 
   
-  require __DIR__ . '\modalFormConnex_tpl.php'; 
+  require_once __DIR__ . '\modalFormConnex_tpl.php'; 
+  require_once __DIR__ . '\modalFormInscript_tpl.php';
 
 ?>
 
@@ -21,10 +22,11 @@
           Button to Open the Modal. 
           L'attribut data-target="#myModal" ici fonction comme une ancre et appel l'attribut avec l'id="myModal" dans le fichier requis ligne 2.
           -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Connexion</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalConnexion">Connexion</button>
       </li>
       <li>
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="">Inscription</button>
+        <!-- Pour utiliser un second modal voilà la structure que j'ai trouvé... -->
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalInscription"><a data-toggle="modal">Inscription</a></button>
       </li>
     </ul>
   </div>

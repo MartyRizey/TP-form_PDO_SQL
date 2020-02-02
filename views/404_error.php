@@ -1,5 +1,5 @@
 
-<?php require __DIR__ . '\templates\doctype_tpl.php'; ?>
+<?php require_once __DIR__ . '\templates\doctype_tpl.php'; ?>
 
   <!-- Ne pas tenir compte du CSS dans les balises c'est juste parce que je me concentre sur le côté back pour le moment. -->
 

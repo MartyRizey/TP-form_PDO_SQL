@@ -34,7 +34,19 @@ footer {
   /* border: 1px solid red; */
   display: inline-flex;
   justify-content: flex-end;   
-  width: 49.9%;
+  width: 49.9%;  
+}
+
+#navBar_login .btn {
+  box-shadow: 1px 1px 2px black
+}
+
+#navBar_login .btn:hover {
+  color: yellow;  
+}
+
+#navBar_login .btn:active {
+  box-shadow: 1px 1px 4px inset black;
 }
 
 #navBar_links ul,
@@ -42,7 +54,7 @@ footer {
   /* border: 1px solid green; */
   display: inline-flex;  
   margin-bottom: 0;
-  padding-left: 0;
+  padding-left: 0;  
 }
 
 .modal-body > form > .input_form {  
@@ -53,13 +65,24 @@ footer {
   margin: 0 auto;
 }
 
-.modal-body > form > .input_form > label:nth-child(3) {
+.modal-header > .modal-title-connex,
+.modal-body > form > .input_form > .label_items_connex {
+  color: #0069D9;
+}
+
+.modal-header > .modal-title-inscript,
+.modal-body > form > .input_form > .label_items_inscript {
+  color: #138496;
+}
+
+.modal-body > form > .input_form > label:nth-child(1) {
   margin-top: 15px;
 }
 
 .modal-body > form > .input_form > input {
   border-radius: 5px;
   padding: 5px;
+  margin-bottom: 20px;
 }
 
 

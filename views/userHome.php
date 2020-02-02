@@ -1,7 +1,7 @@
 <?php 
 
   session_start(); 
-  require '../inc/logOutSession.php';
+  require_once '../inc/logOutSession.php';
 
   // [x] : faire un bouton de déconnexion avec un retour sur home.php
   

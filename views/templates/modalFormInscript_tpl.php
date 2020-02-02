@@ -1,0 +1,57 @@
+<!-- 
+  Après avoir cliqué sur le bouton 'Inscription' dans la NavBar j'arrive ici 
+  Créer une table 'Inscription' en Bdd.
+-->
+<!-- The Modal -->
+<div class="modal" id="modalInscription">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title modal-title-inscript">M'inscrire</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body"> 
+      <!-- Je transmet les données saisies dans le fichier GetInscriptionDatas_ctrl.php -->
+        <form action="Controlers/GetInscriptionDatas_ctrl.php" method="POST">
+
+          <div class="input_form">
+
+            <!-- 
+              TODO : Pensez à faire un test pour savoir SI le speudo existe dèjà en Bdd, SINON faire une requête d'insertion en Bdd .
+              TODO : Créer une table 'inscription' en Bdd.
+            -->
+            <label class="label_items_inscript" for="pseudo">Votre speudo : </label>
+              <input type="text" name="pseudo" id="pseudo" placeholder="votre speudo" required />
+
+            <label class="label_items_inscript" for="birthday">Date anniversaire : </label>
+              <input type="date" name="birthday" id="birthday" />
+
+            <label class="label_items_inscript" for="mail">Votre email : </label> 
+              <input type="email" name="email" id="mail" placeholder="johnDoe@mail.fr" required />
+            <!-- 
+              TODO : Hacher le mot de passe avec password_hash(), le stocker en Bdd. Vérifier à la connexion que le password saisie dans le formulaire de conexion corresponde avec le mot de passe hacher en Bdd avec password_verify().
+            --> 
+            <label class="label_items_inscript" for="pass">Votre mot de passe : </label> 
+              <input type="password" name="password" id="pass" placeholder="mot de passe" required />
+
+          </div>    
+          <br>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <!-- Ici je soumet mon formulaire, les données sont transmisent au fichier qui est en valeur de l'attribut 'action' dans la balise <form>et elles seront transmisent en POST comme indiqué par la valeur de l'attribut 'method' -->
+            <button type="submit" class="btn btn-info">S'inscrire</button>
+            <!-- <input type="submit" class="btn btn-primary" value="Login"/> -->
+          </div>
+
+        </form>        
+      </div>
+
+    </div>
+  </div> 
+</div>
+

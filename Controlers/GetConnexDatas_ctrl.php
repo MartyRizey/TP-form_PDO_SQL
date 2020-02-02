@@ -1,20 +1,19 @@
 <?php
 
   session_start();
-  require '../modeles/selectDatas_bdd.php';
-
+  require_once '../modeles/selectDatas_bdd.php';
+  
   /**
-   * https://www.php.net/manual/fr/function.ini-set.php
-   * https://www.php.net/manual/fr/errorfunc.configuration.php#ini.display-errors   * 
+   * htmlspecialchars() évite les failles XSS.
+   * trim() Supprime les espaces (ou autres caractères) du début et de la fin d'une chaîne
+   * └> $email = htmlspecialchars(trim($_POST['email'])); 
+   * 
+   * https://www.php.net/manual/en/function.filter-input.php
+   * https://www.php.net/manual/en/filter.filters.validate.php 
+   * https://www.php.net/manual/en/filter.filters.sanitize.php
+   * └> $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL); 
    */   
-  ini_set('display_errors', true);
-  // https://www.php.net/manual/fr/function.error-reporting.php
-  error_reporting(E_ALL);
-  // include("file_with_errors.php");
-
-  // htmlspecialchars() évite les failles XSS.
-  // trim() Supprime les espaces (ou autres caractères) du début et de la fin d'une chaîne
-  $email    = htmlspecialchars(trim($_POST['email']));  
+  $email = trim(filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL, FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
   $password = htmlspecialchars(trim($_POST['password']));
 
   // Pour isoler le symbole arobase '@'.
@@ -32,7 +31,7 @@
    * echo '<pre>'; print_r($arr = str_split($email)); echo '</pre>';   
    * if(in_array("@", $arr)) { echo 'YES ....'; } else { echo 'Ouuuuu la bouse !!!'; }
    */
-  // Si $email est différent de vide (donc si $email contient bien une valeur) et si 
+  // Si $email est différent de vide (donc si $email contient bien une valeur) et si $email contient bien '@'
   if(!empty($email) && substr(strstr($email, '@'),0 ,1) === '@') {
  
     // substr() Retourne une partie d'une chaîne

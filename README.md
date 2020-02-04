@@ -4,7 +4,7 @@
 
 - <https://openclassrooms.com/fr/courses/1567926-un-site-web-dynamique-avec-jquery/1569693-cas-concret-un-formulaire`>
 
-> Configuration des erreurs
+> **[x]** Configuration des erreurs
 
 - <https://www.php.net/manual/en/function.ini-set.php>
 
@@ -23,18 +23,20 @@
 
 - Essaie dès maintenant de hacher les passwords etc, c'est vraiment important, même pour des test il est préférable de hacher/crypter les passwords.
 
-  - `password_hash`   => <https://www.php.net/manual/fr/function.password-hash>
+  - [x] `password_hash`   => <https://www.php.net/manual/fr/function.password-hash>
   - `password_verify` => <https://www.php.net/manual/fr/function.password-verify.php>
-.
+  ~
+  
+
   ```
-  Oui tu peux stocker le hashage dans une variable et ensuite mettre cette variable dans ta requête sql afin d'avoir le mdp hasher, après ton champ password en BDD doit être de type varchar
-  avec une taille de 254 pour être sur que la totalité de la chaine de caractère soit enregistré.
+  Oui tu peux stocker le hashage dans une variable et ensuite mettre cette variable dans ta requête sql afin d'avoir le mdp hasher, après ton champ password en BDD doit être de type varchar 
+    avec une taille de 254 pour être sur que la totalité de la chaine de caractère soit enregistré.
 
   password_verify tu l'utilise quand l'utilisateur se connecte, pas de cette façon
   ```
   ```
-  Exemple :
-  ---------
+  pense bête :
+  ----------
   // echo password_hash('Doe', PASSWORD_DEFAULT, ['cost' => 16]);
   // echo var_dump(password_verify('Doe', '\$2y$16$N0FJU3eDl1N966EPlWFB0eYbAAu5tV7d1vIoY.jdAVgPiBcdjDQh6'));
 
@@ -78,7 +80,7 @@
 
 - Utiliser plutot `require_once` que `require` pour éviter d'inclure plusieurs le même fichier.
 
-> Insertion des données en Base de données.
+> **[x]** Insertion des données en Base de données.
 
 - Attention au niveau Bdd, ne pas utiliser `htmlentities` qui transforme les accents `è` en entité html `&eacute;` mais plutot `htmlspecialchars`.
 

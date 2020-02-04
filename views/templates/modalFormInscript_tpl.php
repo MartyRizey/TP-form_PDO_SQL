@@ -1,3 +1,4 @@
+
 <!-- 
   Après avoir cliqué sur le bouton 'Inscription' dans la NavBar j'arrive ici 
   Créer une table 'Inscription' en Bdd.
@@ -22,10 +23,10 @@
 
             <!-- 
               TODO : Pensez à faire un test pour savoir SI le speudo existe dèjà en Bdd, SINON faire une requête d'insertion en Bdd .
-              TODO : Créer une table 'inscription' en Bdd.
+              [x] : Créer une table 'inscription' en Bdd.
             -->
             <label class="label_items_inscript" for="pseudo">Votre speudo : </label>
-              <input type="text" name="pseudo" id="pseudo" placeholder="votre speudo" required />
+              <input type="text" name="pseudo" id="pseudo" placeholder="votre speudo" title="Vous pouvez utilisez les majuscules, mais le pseudo entier ne doit pas l'être" required />
 
             <label class="label_items_inscript" for="birthday">Date anniversaire : </label>
               <input type="date" name="birthday" id="birthday" />

@@ -6,7 +6,7 @@
     require_once '../inc/connex_bdd.php';    
 
     // requête de selection des champs 'password' et 'email' dans la table 'users'
-    $dataSelectFieldsBdd = 'SELECT password, email FROM users';
+    $dataSelectFieldsBdd = 'SELECT password, email FROM user_connect';
 
     // https://www.php.net/manual/fr/pdo.query.php
     // la méthode 'query()' est une méthode PDO. Elle s'aplique sur un objet PDO ici '$connetBdd' qui stocke ma connection et qui est une instance de PDO.

@@ -42,13 +42,7 @@
     if(($firstLetterPass != '<') && (strlen($password) < 12)) {
 
       // [x]: faire un appel à une fonction de selection des données dans le fichier 'selectDatas_bdd.php' en Bdd, pour récupérer la valeur des champs concernés.  
-      $getDatasToBdd = datasSelectBdd($email, $password);  
-      
-      echo '<pre>';
-      print_r($getDatasToBdd);
-      echo'</pre>';
-
-      echo $getDatasToBdd['email'];
+      $getDatasToBdd = datasSelectBdd($email, $password);       
 
       // [x]: Comparer les données saisies avec celles en Bdd et les stocker dans une SESSION.
       if(($firstLetterEmail != '<') && $email === $getDatasToBdd['email'] && $password === $getDatasToBdd['password']) {

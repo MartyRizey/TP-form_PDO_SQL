@@ -18,19 +18,18 @@
 
 - <https://www.php.net/manual/fr/language.exceptions.php> : `try` et `catch`.
 
-> Sécuriser les password
+> Sécuriser les password, formulaire connexion et inscription
 └> <https://www.grafikart.fr/tutoriels/password-hash-1132>
 
 - Essaie dès maintenant de hacher les passwords etc, c'est vraiment important, même pour des test il est préférable de hacher/crypter les passwords.
 
   - [x] `password_hash`   => <https://www.php.net/manual/fr/function.password-hash>
-  - `password_verify` => <https://www.php.net/manual/fr/function.password-verify.php>
-  ~
-  
+  - [ ] `password_verify` => <https://www.php.net/manual/fr/function.password-verify.php>  
+  ~  
 
   ```
-  Oui tu peux stocker le hashage dans une variable et ensuite mettre cette variable dans ta requête sql afin d'avoir le mdp hasher, après ton champ password en BDD doit être de type varchar 
-    avec une taille de 254 pour être sur que la totalité de la chaine de caractère soit enregistré.
+  Oui tu peux stocker le hashage dans une variable et ensuite mettre cette variable dans ta requête sql afin d'avoir le mdp hasher, après ton champ password en BDD doit être de type varchar avec une taille de 254 pour être sur que 
+  la totalité de la chaine de caractère soit enregistré.
 
   password_verify tu l'utilise quand l'utilisateur se connecte, pas de cette façon
   ```
@@ -50,6 +49,11 @@
   }
   echo passwordHash('Athur');
   ```
+- **Formulaire de connexion :** 
+```
+Concernant la connexion, je peux d'ores et déjà te dire que tu dois faire ta requête sql avec les identifiants que l'utilisateur a saisi, et non récupérer TOUT les utilisateurs dans ta base de donné et boucler dessus pour trouver qui 
+s'est connecté.
+```
 
 > Accès aux fichiers 
 

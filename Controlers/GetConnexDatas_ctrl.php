@@ -41,39 +41,70 @@
     // Si la valeur contenue dans $firstLetterPass est différente de < et si la longueur de la valeur contenue dans $password et inférieur à 12 alors je rentre dans la condition.
     if(($firstLetterPass != '<') && (strlen($password) < 12)) {
 
-      // [x]: faire un appel à une fonction de selection des données dans le fichier 'selectDatas_bdd.php' en Bdd, pour récupérer les champs concernés.  
-      $getDatasToBdd = datasSelectBdd();
+      // [x]: faire un appel à une fonction de selection des données dans le fichier 'selectDatas_bdd.php' en Bdd, pour récupérer la valeur des champs concernés.  
+      $getDatasToBdd = datasSelectBdd($email, $password);  
+      
+      echo '<pre>';
+      print_r($getDatasToBdd);
+      echo'</pre>';
 
-      foreach($getDatasToBdd AS $datasConnexModal) {
+      echo $getDatasToBdd['email'];
 
-        $dataConnexModal = $datasConnexModal;       
+      // [x]: Comparer les données saisies avec celles en Bdd et les stocker dans une SESSION.
+      if(($firstLetterEmail != '<') && $email === $getDatasToBdd['email'] && $password === $getDatasToBdd['password']) {
 
-        // [x]: Comparer les données saisies avec celles en Bdd et les stocker dans une SESSION.        
-        if(($email === $dataConnexModal['email']) && ($password === $dataConnexModal['password'])) {   
+        $_SESSION['email'] = $getDatasToBdd['email'];
+        $_SESSION['password'] = $getDatasToBdd['password'];
 
-          $_SESSION['email'] = $dataConnexModal['email'];
-          $_SESSION['password'] = $dataConnexModal['password'];
+        // [x]: renvoie sur une page spécifique contenant l'utilisateur connecté en SESSION. Créer une page vue spécifique.
+        header('Location: ../views/userHome.php');
 
-          // [x]: renvoie sur une page spécifique contenant l'utilisateur connecté en SESSION. Créer une page vue spécifique.
-          header('Location: ../views/userHome.php');
+        // pour être sur que je m'arrête ici et ne pas exécuter le reste je fait un exit();
+        exit();
 
-          // pour être sur que je m'arrête ici et ne pas exécuter le reste je fait un exit();
-          exit();
-
-        } else {
-
+      } else {        
           // [x]: faire une page 404 ou redirigé vers l'index.php sans Login.          
-          header('Location: ../views/404_error.php');        
-
-        }
-      }   
-    } else {
-
-      // [x]: faire une page 404 ou redirigé vers l'index.php sans Login.
-      header('Location: ../views/404_error.php'); 
-
-      }  
+          header('Location: ../views/404_error.php'); 
+      }    
+    } else {      
+        // [x]: faire une page 404 ou redirigé vers l'index.php sans Login.          
+        header('Location: ../views/404_error.php'); 
+    }
   }
+
+      die();
+
+
+  //     foreach($getDatasToBdd AS $datasConnexModal) {
+
+  //       $dataConnexModal = $datasConnexModal;       
+
+  //       // [x]: Comparer les données saisies avec celles en Bdd et les stocker dans une SESSION.        
+  //       if(($email === $dataConnexModal['email']) && ($password === $dataConnexModal['password'])) {   
+
+  //         $_SESSION['email'] = $dataConnexModal['email'];
+  //         $_SESSION['password'] = $dataConnexModal['password'];
+
+  //         // [x]: renvoie sur une page spécifique contenant l'utilisateur connecté en SESSION. Créer une page vue spécifique.
+  //         header('Location: ../views/userHome.php');
+
+  //         // pour être sur que je m'arrête ici et ne pas exécuter le reste je fait un exit();
+  //         exit();
+
+  //       } else {
+
+  //         // [x]: faire une page 404 ou redirigé vers l'index.php sans Login.          
+  //         header('Location: ../views/404_error.php');        
+
+  //       }
+  //     }   
+  //   } else {
+
+  //     // [x]: faire une page 404 ou redirigé vers l'index.php sans Login.
+  //     header('Location: ../views/404_error.php'); 
+
+  //     }  
+  // }
 
 
   

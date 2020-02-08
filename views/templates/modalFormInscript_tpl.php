@@ -17,7 +17,7 @@
       <!-- Modal body -->
       <div class="modal-body"> 
       <!-- Je transmet les données saisies dans le fichier GetInscriptionDatas_ctrl.php -->
-        <form action="Controlers/GetInscriptionDatas_ctrl.php" method="POST">
+        <form action="Controlers/Ctrl_insertDatasRegistration.php" method="POST">
 
           <div class="input_form">
 

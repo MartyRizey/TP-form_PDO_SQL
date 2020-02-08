@@ -15,7 +15,7 @@
       <!-- Modal body -->
       <div class="modal-body"> 
       <!-- Je transmet les données saisies dans le fichier GetConnexDatas_ctrl.php -->
-        <form action="Controlers/GetConnexDatas_ctrl.php" method="POST">
+        <form action="Controlers/Ctrl_selectDatasForConnex.php" method="POST">
 
           <div class="input_form">
 

@@ -2,6 +2,8 @@
 
   session_start();
   require_once '../modeles/selectDatas_bdd.php';
+  require_once 'GetInscriptionDatas_ctrl.php';
+
   
   /**
    * htmlspecialchars() évite les failles XSS.
@@ -41,8 +43,12 @@
     // Si la valeur contenue dans $firstLetterPass est différente de < et si la longueur de la valeur contenue dans $password et inférieur à 12 alors je rentre dans la condition.
     if(($firstLetterPass != '<') && (strlen($password) < 12)) {
 
+
+
       // [x]: faire un appel à une fonction de selection des données dans le fichier 'selectDatas_bdd.php' en Bdd, pour récupérer la valeur des champs concernés.  
-      $getDatasToBdd = datasSelectBdd($email, $password);       
+      $getDatasToBdd = datasSelectBdd($email, $password);        
+
+      print_r($getDatasToBdd); die();
 
       // [x]: Comparer les données saisies avec celles en Bdd et les stocker dans une SESSION.
       if(($firstLetterEmail != '<') && $email === $getDatasToBdd['email'] && $password === $getDatasToBdd['password']) {
@@ -66,7 +72,7 @@
     }
   }
 
-      die();
+     
 
 
   //     foreach($getDatasToBdd AS $datasConnexModal) {
